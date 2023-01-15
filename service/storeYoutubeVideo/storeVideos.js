@@ -3,7 +3,7 @@ const Video = require("../../database/models/videos");
 
 youtube.authenticate({
     type: 'key',
-    key: 'YOUR_API_KEY'
+    key: 'AIzaSyBaLRhIHcmnRd4C-pJ40sliD0d5GdkdMb4'
   });
   
   const query = 'cricket';
@@ -20,7 +20,7 @@ youtube.authenticate({
         return;
       }
   
-      data.items.forEach(video => {
+      data.data.items.forEach(video => {
         const newVideo = new Video({
           title: video.snippet.title,
           description: video.snippet.description,

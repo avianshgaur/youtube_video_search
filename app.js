@@ -1,6 +1,7 @@
 const connectMongo = require("./configuration/mongoose_connection");
 const express = require("express");
 const { handleIncomingVideoInfoGetRequest } = require("./controller/videoController");
+const { storeVideoInfo } = require("./service/storeYoutubeVideo/storeVideos");
 const app = express();
 
 
@@ -11,6 +12,8 @@ const main = async ()=>{
     //connect mongo
     console.log(process.env.MONGO_URI);
     await connectMongo();
+    storeVideoInfo();
+
 }
 app.get('/videos', (req, res) => {
     handleIncomingVideoInfoGetRequest(req,res);

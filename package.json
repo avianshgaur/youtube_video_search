@@ -1,0 +1,11 @@
+{
+  "name": "fampay_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node app.js"
+  },
+  "author": "Avinash",
+  "license": "MIT"
+}

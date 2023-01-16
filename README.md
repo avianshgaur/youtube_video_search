@@ -1,4 +1,4 @@
-#Video Search API
+# Video Search API
 This is a server-side application that continuously calls the YouTube API in the background, with an interval of 10 seconds, for fetching the latest videos for a predefined search query. The data of the videos is stored in a MongoDB database with proper indexes. The application also provides an API for searching, filtering, and sorting the stored videos.
 
 ##Prerequisites

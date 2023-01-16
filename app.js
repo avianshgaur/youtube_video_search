@@ -19,7 +19,7 @@ app.get('/videos', (req, res) => {
     handleIncomingVideoInfoGetRequest(req,res);
   })
 
-app.use('/', searchVideoRouter);
+app.use('/videos', searchVideoRouter);
 
 main().then(()=>{
     console.log("Server started");

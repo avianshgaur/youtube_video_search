@@ -2,15 +2,18 @@ const Video = require("../../database/models/videos");
 const getYoutubeClient = require("./getYoutubeClient");
 const config = require("./../../config/default");
 
-const fetchVideos = async () => {
+const fetchAndSaveVideos = async () => {
   const searchQuery = config.search_query_for_youtube_video;
   const youtubeClient =  await getYoutubeClient();
   youtubeClient.search.list(
     {
       part: "snippet",
       type: "video",
+      order: Date,
+      publishedAfter: new Date('2017-01-01'),
       q: searchQuery,
       maxResults: 50,
+      
     },
     (err, data) => {
       if (err) {
@@ -39,6 +42,6 @@ const fetchVideos = async () => {
 };
 
 const storeVideoInfo = () => {
-  setInterval(fetchVideos, 10000);
+  setInterval(fetchAndSaveVideos, 10000);
 };
 module.exports.storeVideoInfo = storeVideoInfo;
